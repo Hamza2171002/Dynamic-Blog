@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { posts } from '@/app/data/posts';
 import CommentForm from '@/app/component/CommentForm';
 import CommentList from '@/app/component/CommentList';
+import Image from 'next/image';
 
 export default function BlogPost({ params }) {
   const post = posts.find(p => p.id === parseInt(params.id));
@@ -19,7 +20,7 @@ export default function BlogPost({ params }) {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Post Not Found</h2>
-          <p className="text-gray-600 mb-6">The post you're looking for doesn't exist.</p>
+          <p className="text-gray-600 mb-6">The post you&apos;re looking for doesn&apos;t exist.</p>
           <a 
             href="/blog" 
             className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -36,7 +37,7 @@ export default function BlogPost({ params }) {
       <div className="bg-white rounded-xl p-8 shadow-lg mb-8">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">{post.title}</h1>
         <div className="flex items-center mb-8 space-x-4">
-          <img 
+          <Image 
             src={post.authorImage || '/api/placeholder/48/48'} 
             alt={post.author}
             className="w-12 h-12 rounded-full"

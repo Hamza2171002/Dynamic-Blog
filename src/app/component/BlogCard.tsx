@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function BlogCard({ post }) {
   return (
     <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
@@ -11,7 +13,7 @@ export default function BlogCard({ post }) {
           <a href={`/blog/${post.id}`}>{post.title}</a>
         </h2>
         <div className="flex items-center mb-4">
-          <img 
+          <Image 
             src={post.authorImage } 
             alt={post.author}
             className="w-8 h-8 rounded-full mr-3"
