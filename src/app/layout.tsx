@@ -16,7 +16,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="bg-gray-50">
+        <nav className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 fixed w-full top-0 z-50 shadow-lg">
+          <div className="container mx-auto flex justify-between items-center">
+            <a href="/" className="text-white text-2xl font-bold hover:scale-105 transition-transform">
+              BlogSpace
+            </a>
+            <div className="hidden md:flex space-x-6">
+              <a href="/" className="text-white hover:text-gray-200 transition-colors">Home</a>
+              <a href="/blog" className="text-white hover:text-gray-200 transition-colors">Blog</a>
+            </div>
+            <button className="md:hidden text-white">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-16 6h16"/>
+              </svg>
+            </button>
+          </div>
+        </nav>
+        <main className="container mx-auto px-4 py-24 min-h-screen">
+          {children}
+        </main>
+        <footer className="bg-gray-800 text-white py-8">
+          <div className="container mx-auto px-4 text-center">
+            <p>© 2025 BlogSpace. All rights reserved.</p>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
+  
