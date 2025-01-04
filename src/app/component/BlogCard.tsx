@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function BlogCard({ post }) {
+export default function BlogCard({ post }: any) {
   return (
     <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
       <div className="flex flex-col h-full">
@@ -16,6 +16,8 @@ export default function BlogCard({ post }) {
           <Image 
             src={post.authorImage } 
             alt={post.author}
+            width={8}
+            height={8}
             className="w-8 h-8 rounded-full mr-3"
           />
           <div>

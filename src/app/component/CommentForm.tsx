@@ -1,12 +1,12 @@
 "use client";
 import { useState } from "react";
 
-export default function CommentForm({ onSubmit }) {
+export default function CommentForm({ onSubmit }: any) {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (name && comment) {
       setIsSubmitting(true);
@@ -49,7 +49,7 @@ export default function CommentForm({ onSubmit }) {
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-            rows="4"
+            rows={4}
             required
           />
         </div>

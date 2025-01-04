@@ -5,11 +5,18 @@ import CommentForm from '@/app/component/CommentForm';
 import CommentList from '@/app/component/CommentList';
 import Image from 'next/image';
 
-export default function BlogPost({ params }) {
+export default function BlogPost({ params }: { params: { id: string } }) {
   const post = posts.find(p => p.id === parseInt(params.id));
-  const [comments, setComments] = useState([]);
+  
+  interface Comment {
+    name: string;
+    comment: string;
+    date: string;
+  }
 
-  const handleCommentSubmit = async (newComment) => {
+  const [comments, setComments] = useState<Comment[]>([]);
+
+  const handleCommentSubmit = async (newComment: Comment) => {
     // Simulate network delay
     await new Promise(resolve => setTimeout(resolve, 500));
     setComments([...comments, newComment]);
@@ -40,6 +47,8 @@ export default function BlogPost({ params }) {
           <Image 
             src={post.authorImage || '/api/placeholder/48/48'} 
             alt={post.author}
+            width={12}
+            height={12}
             className="w-12 h-12 rounded-full"
           />
           <div>
